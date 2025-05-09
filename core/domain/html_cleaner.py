@@ -97,6 +97,7 @@ def clean(user_submitted_html: str) -> str:
     """Cleans a piece of user submitted HTML.
 
     This only allows HTML from a restricted set of tags, attrs and styles.
+    Logs caller if html has been modified
 
     Args:
         user_submitted_html: str. An untrusted HTML string.
