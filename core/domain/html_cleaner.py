@@ -113,7 +113,6 @@ def clean(user_submitted_html: str) -> str:
     core_tags.update(oppia_custom_tags)
     tag_names = list(core_tags.keys())
 
-    # TODO(sll): Add a log message if bad HTML is detected.
     cleaned_html = bleach.clean(
         user_submitted_html, tags=tag_names, attributes=core_tags, strip=True)
     if cleaned_html != user_submitted_html:
