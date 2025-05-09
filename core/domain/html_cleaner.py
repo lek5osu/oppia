@@ -36,7 +36,7 @@ class ComponentsDict(TypedDict):
     """Dictionary that represents RTE Components."""
 
     id: str
-    customization_args: Dict[str, Union[str, int, str, bool, Dict[str, str]]]
+    customization_args: Dict[str, Union[str, int, bool, Dict[str, str]]]
 
 
 def filter_a(tag: str, name: str, value: str) -> bool:
