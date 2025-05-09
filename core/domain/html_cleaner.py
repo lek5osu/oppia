@@ -112,10 +112,12 @@ def clean(user_submitted_html: str) -> str:
     core_tags.update(oppia_custom_tags)
     tag_names = list(core_tags.keys())
 
-    # TODO(sll): Alert the caller if the input was changed due to this call.
     # TODO(sll): Add a log message if bad HTML is detected.
-    return bleach.clean(
+    cleaned_html = bleach.clean(
         user_submitted_html, tags=tag_names, attributes=core_tags, strip=True)
+    if cleaned_html != user_submitted_html:
+        logging.warning("User-submitted HTML was modified during cleaning.")
+    return cleaned_html
 
 
 def strip_html_tags(html_string: str) -> str:
